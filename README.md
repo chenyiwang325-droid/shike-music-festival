@@ -1,5 +1,8 @@
 # 此刻有声 · 音乐人格问答原型
 
+**在线体验：[https://chenyiwang325-droid.github.io/shike-music-festival/](https://chenyiwang325-droid.github.io/shike-music-festival/)**
+
+入口为必答的四道音乐情境题；完成后才揭晓人格并继续制作海报。
 下载完整提交包后可打开 `离线体验.html`。从仓库克隆时先运行 `python3 build_offline.py` 生成离线文件；也可直接运行 `python3 serve.py`，访问 http://localhost:8765/ 。维护源码位于 dist/。
 
 流程：四题问答并揭晓人格 → 视觉风格 → 预设留言与昵称→ 生成等待 → 独立结果页。初始页面不展示海报；无对照页或重复留言入口。人格只能通过完整四题问答得到；未完成时不能继续，重新创作会清空测评，不能直接切换人格。保存导出 Canvas PNG；扫码弹窗包含手机领取页示例；分享显示海报卡片并支持系统图片分享或下载兜底；试饮券为非真实核销示例；公开上屏需要明确勾选授权。
