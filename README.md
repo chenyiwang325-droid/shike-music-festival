@@ -4,7 +4,7 @@
 
 ## 运行
 
-- 直接打开 `离线体验.html`。
+- 运行 `python3 build_offline.py` 后，打开生成的 `离线体验.html`。
 - 或运行 `python3 serve.py`，访问 `http://localhost:8765/`。macOS 可双击 `启动预览.command`。
 - 修改源码后，运行 `python3 build_offline.py` 更新离线文件。
 - 运行 `node test.cjs` 检查测评、输入校验和队列规则。
@@ -29,3 +29,8 @@
 - 未接入实时生图、真实核销和服务端审核。公共队列使用同源浏览器本地存储，不支持跨设备同步。
 
 第三方二维码工具许可见 `THIRD_PARTY.md`。
+
+## 提交材料
+
+- [一页产品方案](docs/产品方案_一页.pdf)
+- [AI 工具使用说明](docs/AI工具使用说明.md)
