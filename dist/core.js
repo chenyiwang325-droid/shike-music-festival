@@ -1,7 +1,7 @@
 /* Pure product rules shared by the page and the Node smoke test. No model API is called. */
 (function(root){
 'use strict';
-const PERSONAS={energy:{name:'前排发电机',line:'心跳，跟鼓点同拍。',english:'Feel the beat.',prompt:'explosive percussion, angular radial waves'},wander:{name:'旋律漫游者',line:'让旋律，带我去远一点。',english:'Drift with the sound.',prompt:'flowing melody, soft rippling waves'},resonance:{name:'全场共鸣体',line:'这一首，我们一起唱。',english:'Sing it together.',prompt:'chorus, concentric resonant rings'}};
+const PERSONAS={energy:{name:'前排发电机',line:'心跳，跟鼓点同拍。',english:'Feel the beat.',prompt:'active movement, jumping or performing, explosive percussion'},wander:{name:'旋律漫游者',line:'让旋律，带我去远一点。',english:'Drift with the sound.',prompt:'a relaxed listener immersed in music, quiet posture, flowing melody'},resonance:{name:'全场共鸣体',line:'这一首，我们一起唱。',english:'Sing it together.',prompt:'friends singing to each other, shared gestures and interaction, chorus'}};
 const STYLES={chrome:{name:'霓虹现场',prompt:'electric live music, pink lasers, silver liquid sound waves and dark cherry night'},sunset:{name:'落日梦境',prompt:'peach sunset, clouds, transparent glass waves, dreamy festival collage'},risograph:{name:'复古拼贴',prompt:'cream paper, berry red and cobalt blue risograph concert collage'}};
 const QUESTIONS=[
  {text:'刚走进音乐节，你会先去哪里？',options:[{text:'顺着最有冲击力的鼓点，往舞台靠近',type:'energy'},{text:'沿着声音散步，看看哪里让我想停下',type:'wander'},{text:'先找到朋友，挑个能一起听歌的位置',type:'resonance'}]},
@@ -19,8 +19,8 @@ const CASES=[
  {id:'content',label:'只换想说的话',difference:'保持人格与风格，改为朋友海边相聚',nickname:'阿跃',phrase:'和朋友在海边唱到日出',style:'chrome',theme:'together',answers:[0,2,1,0]},
  {id:'name',label:'只换称呼',difference:'保持场景，个人署名与姓名字标随称呼改变',nickname:'小鱼',phrase:'把烦恼装进气泡，今晚飞去月球',style:'chrome',theme:'escape',answers:[0,2,1,0]}
 ];
-function assetKey(record){if(record.style==='chrome'&&record.theme==='escape'&&['wander','resonance'].includes(record.persona))return 'v4_chrome_escape_'+record.persona;return 'v4_'+record.style+'_'+record.theme;}
-function creativeBrief(record){return {persona:PERSONAS[record.persona].name,style:STYLES[record.style].name,subject:THEMES[record.theme].subject,personalText:record.phrase,signature:record.nickname,scene:assetKey(record),scope:'有限模拟案例；同类自由输入复用对应场景，不是真实任意输入生图'};}
+function assetKey(record){return 'v4_'+record.style+'_'+record.theme+(record.persona==='energy'?'':'_'+record.persona);}
+function creativeBrief(record){return {persona:PERSONAS[record.persona].name,style:STYLES[record.style].name,subject:THEMES[record.theme].subject,personalText:record.phrase,signature:record.nickname,scene:assetKey(record),scope:'27 个预生成组合；人格决定人物行动与关系，留言决定场景，风格决定表现形式；昵称仅作署名'};}
 const TTL=86400000,QUEUE_TTL=600000,DISPLAY_MS=12000,MAX_QUEUE=5;
 const normalize=s=>String(s??'').normalize('NFKC').replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/g,'').trim();
 function validate(input){
